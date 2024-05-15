@@ -1,0 +1,70 @@
+basePath: /api
+definitions:
+  models.Config:
+    properties:
+      email:
+        properties:
+          from:
+            type: string
+          password:
+            type: string
+          smtpport:
+            type: integer
+          smtpserver:
+            type: string
+          to:
+            type: string
+          username:
+            type: string
+        type: object
+      frequency:
+        type: string
+      sites:
+        items:
+          type: string
+        type: array
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: API para gerenciar a configuração e envio de newsletters.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Newsletter API
+  version: "1.0"
+paths:
+  /api/config:
+    post:
+      consumes:
+      - application/json
+      description: Update the current configuration for the newsletter
+      parameters:
+      - description: Configuration to update
+        in: body
+        name: config
+        required: true
+        schema:
+          $ref: '#/definitions/models.Config'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Update configuration
+      tags:
+      - config
+  /api/newsletter:
+    post:
+      description: Send the current newsletter to the configured email
+      responses:
+        "200":
+          description: OK
+      summary: Send newsletter
+      tags:
+      - newsletter
+swagger: "2.0"

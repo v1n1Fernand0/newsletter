@@ -1,0 +1,11 @@
+sites:
+  - "https://rss.cnn.com/rss/edition.rss"
+  - "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+frequency: "24h"
+email:
+  smtp_server: "smtp.example.com"
+  smtp_port: 587
+  username: "your-email@example.com"
+  password: "your-email-password"
+  from: "your-email@example.com"
+  to: "recipient-email@example.com"
